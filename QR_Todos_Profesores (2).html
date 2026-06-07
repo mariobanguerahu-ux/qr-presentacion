@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Presentación — Muchos hallazgos, pocas sanciones</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0e1f0e; font-family:Georgia,serif; padding:2rem; }
+.portada { text-align:center; padding:2.5rem 2rem 1.5rem; margin-bottom:1.5rem; border-bottom:2px solid rgba(201,168,76,.3); }
+.portada-kicker { font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:#8aaa8a; margin-bottom:.75rem; }
+.portada-titulo { font-size:2rem; font-weight:700; color:#f2ede4; line-height:1.1; margin-bottom:.4rem; }
+.portada-titulo em { color:#c9a84c; font-style:italic; }
+.portada-sub { font-size:.88rem; color:#8aaa8a; font-style:italic; margin-bottom:1rem; }
+.portada-autor { font-size:.8rem; color:#5a7a5a; }
+.hint { text-align:center; font-size:.7rem; color:#4a6a4a; margin-bottom:1.5rem; font-style:italic; }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; max-width:1200px; margin:0 auto 2.5rem; }
+.tarjeta { background:#0e1f0e; border:1px solid rgba(201,168,76,.3); border-radius:10px; padding:1.5rem 1.25rem; display:flex; flex-direction:column; align-items:center; gap:.9rem; transition:border-color .3s; }
+.tarjeta:hover { border-color:rgba(201,168,76,.7); }
+.t-badge { font-size:.55rem; letter-spacing:.2em; text-transform:uppercase; padding:.28rem .7rem; border-radius:20px; font-weight:700; text-align:center; }
+.t-profe { font-size:.95rem; font-weight:700; color:#f2ede4; text-align:center; }
+.t-curso { font-size:.7rem; color:#8aaa8a; text-align:center; font-style:italic; margin-top:-.3rem; }
+.t-qr { background:#f5f0e8; padding:11px; border-radius:6px; border:2.5px solid #c9a84c; }
+.t-url { font-family:monospace; font-size:.52rem; color:#5a7a5a; text-align:center; word-break:break-all; max-width:200px; }
+.t-btn { background:#c9a84c; color:#0e1f0e; border:none; padding:.45rem 1rem; border-radius:4px; font-family:Georgia,serif; font-size:.75rem; font-weight:700; cursor:pointer; width:100%; }
+.t-btn:hover { background:#dfc060; }
+.footer { text-align:center; padding:1.5rem; border-top:1px solid rgba(201,168,76,.2); font-size:.68rem; color:#4a6a4a; line-height:1.8; }
+</style>
+</head>
+<body>
+
+<div class="portada">
+  <div class="portada-kicker">Especial de datos · Universidad de Antioquia · Junio 2026</div>
+  <div class="portada-titulo">Muchos <em>hallazgos,</em><br>pocas sanciones</div>
+  <div class="portada-sub">Control fiscal en el Chocó · 2020–2023</div>
+  <div class="portada-autor">Por Mario Yesid Banguera Hurtado · mario.banguera@udea.edu.co</div>
+</div>
+
+<div class="hint">↓ Escanea el QR de tu curso para acceder a los materiales ↓</div>
+
+<div class="grid">
+
+  <!-- QR 1: REPORTAJE -->
+  <div class="tarjeta">
+    <span class="t-badge" style="background:rgba(201,168,76,.15);color:#c9a84c;border:1px solid rgba(201,168,76,.4);">Reportaje publicado</span>
+    <div class="t-profe">Ver el reportaje</div>
+    <div class="t-curso">GitHub Pages · Versión interactiva completa</div>
+    <div class="t-qr"><canvas id="qr0" width="170" height="170" style="display:block;image-rendering:pixelated;"></canvas></div>
+    <div class="t-url">mariobanguera147631-ui.github.io/reportaje-choco/</div>
+    <button class="t-btn" onclick="dl(0)">⬇ Descargar</button>
+  </div>
+
+  <!-- QR 2: Profe Producción y Géneros -->
+  <div class="tarjeta">
+    <span class="t-badge" style="background:rgba(139,26,26,.15);color:#e07070;border:1px solid rgba(139,26,26,.4);">Producción y Géneros</span>
+    <div class="t-profe">Profesora del curso</div>
+    <div class="t-curso">Carpeta entrega definitiva · 9 jun 2026</div>
+    <div class="t-qr"><canvas id="qr1" width="170" height="170" style="display:block;image-rendering:pixelated;"></canvas></div>
+    <div class="t-url">drive.google.com/drive/folders/1GM6ezOuRzJACczXhqMjJSRO6swU0ob_v</div>
+    <button class="t-btn" onclick="dl(1)">⬇ Descargar</button>
+  </div>
+
+  <!-- QR 3: Profe Walter -->
+  <div class="tarjeta">
+    <span class="t-badge" style="background:rgba(58,122,58,.15);color:#5aaa5a;border:1px solid rgba(58,122,58,.4);">Investigación Periodística III</span>
+    <div class="t-profe">Profesor Walter</div>
+    <div class="t-curso">Google Sheets · Entrega académica</div>
+    <div class="t-qr"><canvas id="qr2" width="170" height="170" style="display:block;image-rendering:pixelated;"></canvas></div>
+    <div class="t-url">docs.google.com/spreadsheets/d/1tPEJWCVt1KWXaK71M4_vd0Exg6T9maAb</div>
+    <button class="t-btn" onclick="dl(2)">⬇ Descargar</button>
+  </div>
+
+  <!-- QR 4: Profe Juan David -->
+  <div class="tarjeta">
+    <span class="t-badge" style="background:rgba(26,90,138,.15);color:#4a9adc;border:1px solid rgba(26,90,138,.4);">Profesor Juan David</span>
+    <div class="t-profe">Profesor Juan David</div>
+    <div class="t-curso">Carpeta Google Drive · Materiales</div>
+    <div class="t-qr"><canvas id="qr3" width="170" height="170" style="display:block;image-rendering:pixelated;"></canvas></div>
+    <div class="t-url">drive.google.com/drive/folders/1VHR1zS9e7AX_dBxjVQfvgvvAEw56UHJo</div>
+    <button class="t-btn" onclick="dl(3)">⬇ Descargar</button>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong style="color:#8aaa8a;">Muchos hallazgos, pocas sanciones</strong><br>
+  Por Mario Yesid Banguera Hurtado · Universidad de Antioquia · Facultad de Comunicaciones · Junio 2026
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const datos = [
+  { id:'qr0', url:'https://mariobanguera147631-ui.github.io/reportaje-choco/', linea1:'REPORTAJE PUBLICADO · GITHUB PAGES', linea2:'Ver el reportaje completo', urlShort:'mariobanguera147631-ui.github.io/reportaje-choco/', file:'QR-Reportaje-Choco.png' },
+  { id:'qr1', url:'https://drive.google.com/drive/folders/1GM6ezOuRzJACczXhqMjJSRO6swU0ob_v?usp=drive_link', linea1:'PRODUCCIÓN Y GÉNEROS · PROFESORA DEL CURSO', linea2:'Carpeta entrega definitiva · 9 junio 2026', urlShort:'drive.google.com/drive/folders/1GM6ezOu...', file:'QR-Profe-ProduccionGeneros.png' },
+  { id:'qr2', url:'https://docs.google.com/spreadsheets/d/1tPEJWCVt1KWXaK71M4_vd0Exg6T9maAb/edit?usp=sharing', linea1:'INVESTIGACIÓN PERIODÍSTICA III · PROFESOR WALTER', linea2:'Google Sheets · Entrega académica', urlShort:'docs.google.com/spreadsheets/d/1tPEJWCV...', file:'QR-ProfeWalter-Sheets.png' },
+  { id:'qr3', url:'https://drive.google.com/drive/folders/1VHR1zS9e7AX_dBxjVQfvgvvAEw56UHJo?usp=drive_link', linea1:'PROFESOR JUAN DAVID · CARPETA DRIVE', linea2:'Carpeta Google Drive · Materiales del curso', urlShort:'drive.google.com/drive/folders/1VHR1zS9...', file:'QR-ProfeJuanDavid-Drive.png' },
+];
+
+function generarQR(d) {
+  const canvas = document.getElementById(d.id);
+  const ctx = canvas.getContext('2d');
+  const size = 170;
+  const div = document.createElement('div');
+  div.style.display = 'none';
+  document.body.appendChild(div);
+  new QRCode(div, { text: d.url, width: size, height: size, colorDark: '#0e1f0e', colorLight: '#f5f0e8', correctLevel: QRCode.CorrectLevel.H });
+  setTimeout(() => {
+    const qc = div.querySelector('canvas');
+    const qi = div.querySelector('img');
+    if (qc) { ctx.drawImage(qc, 0, 0, size, size); }
+    else if (qi) { const img = new Image(); img.onload = () => ctx.drawImage(img, 0, 0, size, size); img.src = qi.src; }
+    document.body.removeChild(div);
+  }, 500 + datos.indexOf(d) * 200);
+}
+
+function dl(idx) {
+  const d = datos[idx];
+  const canvas = document.getElementById(d.id);
+  const full = document.createElement('canvas');
+  full.width = 380; full.height = 500;
+  const fc = full.getContext('2d');
+  fc.fillStyle = '#0e1f0e'; fc.fillRect(0,0,380,500);
+  fc.strokeStyle = 'rgba(201,168,76,0.4)'; fc.lineWidth=1; fc.strokeRect(10,10,360,480);
+  fc.font='7px Georgia'; fc.fillStyle='#8aaa8a'; fc.textAlign='center';
+  fc.fillText(d.linea1, 190, 34);
+  fc.font='bold 18px Georgia'; fc.fillStyle='#f2ede4';
+  fc.fillText('Muchos hallazgos,', 190, 62);
+  fc.font='italic bold 16px Georgia'; fc.fillStyle='#c9a84c';
+  fc.fillText('pocas sanciones', 190, 85);
+  fc.font='italic 10px Georgia'; fc.fillStyle='#8aaa8a';
+  fc.fillText(d.linea2, 190, 106);
+  fc.fillStyle='#f5f0e8'; fc.fillRect(80,120,220,220);
+  fc.strokeStyle='#c9a84c'; fc.lineWidth=3; fc.strokeRect(80,120,220,220);
+  fc.drawImage(canvas, 90,130,200,200);
+  fc.font='8px monospace'; fc.fillStyle='#8aaa8a';
+  fc.fillText(d.urlShort, 190, 358);
+  fc.strokeStyle='rgba(201,168,76,0.2)'; fc.lineWidth=1;
+  fc.beginPath(); fc.moveTo(40,375); fc.lineTo(340,375); fc.stroke();
+  fc.font='9px Georgia'; fc.fillStyle='#4a6a4a';
+  fc.fillText('Mario Yesid Banguera Hurtado', 190, 398);
+  fc.fillText('Universidad de Antioquia · Junio 2026', 190, 415);
+  const link = document.createElement('a');
+  link.download = d.file;
+  link.href = full.toDataURL('image/png');
+  link.click();
+}
+
+window.addEventListener('load', () => datos.forEach(generarQR));
+</script>
+</body>
+</html>
